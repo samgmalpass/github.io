@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pic Select - Inline</title>
+
+	<style type="text/css">
+
+		/* Thumbnail images */
+		#thumbs { width:90%; padding:5%; }
+		#thumbs img { float:left; width:33.33333%; }
+		/* Main images */
+		#pic { width:90%; padding:5%; }
+		#pic img {width:100%; display:none; }
+
+	</style>
+
+</head>
+<body>
+
+	<div id="thumbs">
+		<img id="tmb_1" class="tmb" src="img/gallery-1.jpg" />
+		<img id="tmb_2" class="tmb" src="img/gallery-2.jpg" />
+		<img id="tmb_3" class="tmb" src="img/gallery-3.jpg" />
+	</div>
+
+	<div id="pic">
+		<img id="pic_1" class="pic" src="img/gallery-1.jpg" />
+		<img id="pic_2" class="pic" src="img/gallery-2.jpg" />
+		<img id="pic_3" class="pic" src="img/gallery-3.jpg" />
+	</div>
+	
+<script type="text/javascript">
+
+	// Find all elements with classname 'tmb'
+    var tmbs = document.getElementsByClassName('tmb');
+
+	// Loop through all items with classname 'tmb' and each time add an eventListener with an index number increasing by 1 each time 
+	// eg. tmb1, tmb2, tmb3 etc..
+    for (var i = 0, t = tmbs.length; i < t; i++) {
+    	var tmb = tmbs[i];
+    	tmb.addEventListener( 'click', loadPic, false );
+    }
+
+    // 
+    var galleryImg = document.getElementsByClassName('pic');
+
+	function loadPic(evt) { 
+
+		// Hide all pics by looping through all items with classname 'pic'
+		for (var i = 0; i < galleryImg.length; i++) {
+	    	galleryImg[i].style.display = "none";
+	    }
+
+	    // Find the id of the 'tmb' that was clicked, 'this' indicates the item that was clicked which it takes from (evt)...the click event sent to the function from the eventListener
+		var thumbId = this.id;
+
+		// Change the name eg. 'tmb_1' and replace 'tmb' with the word 'pic' to result in: 'pic_1'
+		var picId = thumbId.replace('tmb','pic');
+	
+	    // Show id that matches the picId 
+		document.getElementById(picId).style.display = "block";
+
+	}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pic Select - Inline</title>
+
+	<style type="text/css">
+
+		/* Thumbnail images */
+		#thumbs { width:90%; padding:5%; }
+		#thumbs img { float:left; width:33.33333%; }
+		/* Main images */
+		#pic { width:90%; padding:5%; }
+		#pic img {width:100%; display:none; }
+
+	</style>
+
+</head>
+<body>
+
+	<div id="thumbs" class="block show">
+		<img id="tmb_1" src="img/gallery-1.jpg" />
+		<img id="tmb_2" src="img/gallery-2.jpg" />
+		<img id="tmb_3" src="img/gallery-3.jpg" />
+	</div>
+
+	<div id="pic" class="block show">
+		<img id="pic_1" src="img/gallery-1.jpg" />
+		<img id="pic_2" src="img/gallery-2.jpg" />
+		<img id="pic_3" src="img/gallery-3.jpg" />
+	</div>
+	
+<script type="text/javascript">
+
+	function loadPic1() { 
+
+		// hide other pics
+		document.getElementById('pic_2').style.display = "none";	  
+		document.getElementById('pic_3').style.display = "none";
+		// show pic 1
+		document.getElementById('pic_1').style.display = "block";
+	  
+	}
+
+	function loadPic2() { 
+		
+		// hide other pics
+		document.getElementById('pic_1').style.display = "none";	  
+		document.getElementById('pic_3').style.display = "none";
+		// show pic 1
+		document.getElementById('pic_2').style.display = "block";
+	  
+	}
+
+	function loadPic3() { 
+		
+		// hide other pics
+		document.getElementById('pic_1').style.display = "none";	  
+		document.getElementById('pic_2').style.display = "none";
+		// show pic 1
+		document.getElementById('pic_3').style.display = "block";
+	  
+	}
+
+	document.getElementById('tmb_1').addEventListener( 'click', loadPic1 );
+	document.getElementById('tmb_2').addEventListener( 'click', loadPic2 );
+	document.getElementById('tmb_3').addEventListener( 'click', loadPic3 );
+
+</script>
+
+</body>
+</html>
